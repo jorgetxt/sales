@@ -1,5 +1,3 @@
-// Ejemplos de entrada con el nuevo parámetro 'isImported'
-
 import { generateReceipt } from "./sales";
 
 const input1: Item[] = [

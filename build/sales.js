@@ -1,30 +1,32 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.roundTax = roundTax;
+exports.calculatePrice = calculatePrice;
 exports.generateReceipt = generateReceipt;
-// Función para redondear el impuesto a la cantidad más cercana de 0.05
+// Function to round the tax to the nearest 0.05
 function roundTax(amount) {
     return Math.ceil(amount * 20) / 20;
 }
-// Función que calcula los impuestos y el precio total para cada producto
+// Function that calculates taxes and total price for each product
 function calculatePrice(item) {
     const salesTaxRate = 0.1;
     const importDutyRate = 0.05;
     let price = item.price;
     let salesTax = 0;
-    // Verifica si el producto está exento de impuestos
+    // Check if the product is tax exempt
     const isExempt = ["book", "chocolate", "pills"].some((exempt) => item.name.toLowerCase().includes(exempt));
-    // Calcula impuesto de ventas si no está exento
+    // Check if the product is tax exempt
     if (!isExempt) {
         salesTax = price * salesTaxRate;
     }
-    // Calcula arancel de importación si es importado (usando isImported)
+    // Calculate import tariff if imported (using isImported)
     if (item.isImported) {
         salesTax += price * importDutyRate;
         item.name = `imported ${item.name}`;
     }
-    // Redonde el impuesto
+    // Calculate the total price (price + tax)
     const roundedTax = roundTax(salesTax);
-    // Calcula el precio total (precio + impuestos)
+    // Calculate the total price (price + tax)
     const totalPrice = price + roundedTax;
     return {
         name: item.name,
@@ -34,7 +36,7 @@ function calculatePrice(item) {
     };
 }
 /**
- * Función para procesar una lista de artículos y generar el recibo
+ * // Calculate the total price (price + tax)
  * @param items
  * @returns string
  */

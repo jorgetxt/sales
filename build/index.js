@@ -1,5 +1,4 @@
 "use strict";
-// Ejemplos de entrada con el nuevo parámetro 'isImported'
 Object.defineProperty(exports, "__esModule", { value: true });
 const sales_1 = require("./sales");
 const input1 = [

@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "dev": "node ./build/index.js"
+    "dev": "node ./build",
+    "test": "npx jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "ts-jest": "^29.2.5",
     "typescript": "^5.7.2"
   }
 }
